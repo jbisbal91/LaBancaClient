@@ -6,7 +6,7 @@ import { AuthGuard } from "./shared/guards/auth.guard";
 export const rootRouterConfig: Routes = [
   {
     path: "",
-    redirectTo: "/labanca/analytics",
+    redirectTo: "/labanca/noticias",
     pathMatch: "full",
   },
   {
@@ -31,8 +31,8 @@ export const rootRouterConfig: Routes = [
       {
         path: "labanca",
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
-            (m) => m.DashboardModule
+          import("./app-news/app-news.module").then(
+            (m) => m.AppNewsModule
           ),
       },
     ],
