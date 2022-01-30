@@ -104,8 +104,10 @@
         background-color:#06F;
         border:#FFF solid 2px;
         float:right;
-        bottom:2px;
+        top:80px;
         right:2px;
-        position:fixed; 
+        position:fixed;
+        z-index: 3;
+        opacity:0.6;
     }
 }
