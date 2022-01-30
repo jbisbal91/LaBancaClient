@@ -10,6 +10,7 @@ import { AppNewsRoutes } from './app-news.routing';
 import {MatCardModule} from '@angular/material/card';
 import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsCardListComponent } from './components/news-card-list/news-card-list.component';
@@ -20,7 +21,7 @@ import { NewsContainerComponent } from './components/news-container/news-contain
   imports: [
     CommonModule,
     SharedMaterialModule,
-    MatCardModule,
+   
     FlexLayoutModule,
     ChartsModule,
     NgxEchartsModule,
