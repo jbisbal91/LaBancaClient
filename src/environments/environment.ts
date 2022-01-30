@@ -7,5 +7,5 @@ import { config } from "config";
 
 export const environment = {
   production: false,
-  apiURL: config.apiUrl
+  apiURL: 'https://www3.labanca.com.uy'
 };

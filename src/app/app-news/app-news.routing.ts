@@ -1,10 +1,10 @@
 import { Routes } from "@angular/router";
-import { NewsContainerComponent } from "./components/news-container/news-container.component";
+import { NewsRootComponent } from "./news-root.component";
 
 
 export const AppNewsRoutes: Routes = [
   {
     path: "noticias",
-    component: NewsContainerComponent
+    component: NewsRootComponent
   }
 ];
