@@ -1,0 +1,110 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.logo {
+    margin:auto;
+	position:relative;
+    width: 33%;
+}
+
+.logo-container {
+	float:left;
+	left:0px;
+}
+
+.games {
+	margin:auto;
+	position:relative;
+    width: 33%;
+}
+.games-container {
+	text-align:center;
+}
+
+.channels {
+	margin:auto;
+	position:relative;
+    width: 33%;
+}
+
+.channels-container {
+	float:right;
+	right:0px;
+}
+
+.channel {
+    vertical-align:middle; 
+    text-align: center;
+}
+
+.phone {
+    color:white;
+    font-size: 12px;
+}
+
+.labanca_logo {
+    width: 190px;
+    height: 75px;
+    margin-right: 8px;
+}
+
+.game {
+    vertical-align:middle; 
+    text-align: center;
+}
+
+.separator {
+    font-size: 30px !important; 
+    color: #FFF !important;
+}
+
+@media screen and (max-width:793px) {  
+    .labanca_logo {
+        width: 120px;
+        height: 55px;
+        margin-right: 5px;
+    }
+    .game {
+        vertical-align:middle; 
+        text-align: center;
+        max-width: 45px;
+    }
+    .separator {
+        font-size: 15px !important;
+    }
+    .channel {
+        max-width: 22px; 
+    }   
+    .phone {
+        color:white;
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:595px) {
+    .labanca_logo {
+        width: 120px;
+        height: 55px;
+        margin-right: 5px;
+    }
+    .game {
+        vertical-align:middle; 
+        text-align: center;
+        max-width: 45px;
+    }
+    .separator {
+        font-size: 15px !important;
+    }
+    .logo, .games{
+        width:50%;
+    }
+    .channels {
+        background-color:#06F;
+        border:#FFF solid 2px;
+        float:right;
+        bottom:2px;
+        right:2px;
+        position:fixed; 
+    }
+}
