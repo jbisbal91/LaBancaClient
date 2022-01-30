@@ -5,7 +5,8 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-header-side',
-  templateUrl: './header-side.template.html'
+  templateUrl: './header-side.template.html',
+  styleUrls: ['./header-side.template.scss']
 })
 export class HeaderSideComponent implements OnInit {
   @Input() notificPanel;
