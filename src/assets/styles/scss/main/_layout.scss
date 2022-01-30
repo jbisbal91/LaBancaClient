@@ -80,7 +80,7 @@
 // --------
 .app-admin-container.sidebar-full:not(.compact-toggle-active) {
   .main-content-wrap {
-    width: calc(100% - #{$sidebar-width});
+    width: calc(100% - #{0px});
   }
   .sidebar-panel {
     width: $sidebar-width;
@@ -106,12 +106,6 @@
   }
   .sidebar-panel {
     width: $compact-big-sidebar-width;
-    .branding {
-      width: $compact-big-sidebar-width;
-      .app-logo {
-        margin: auto;
-      }
-    }
     .navigation-hold {
       overflow: visible !important;
     }
@@ -122,10 +116,7 @@
   .sidebar-panel {
     overflow: hidden;
     left: -$sidebar-width;
-    .branding {
-      left: -$sidebar-width;
-      
-    }
+ 
   }
   .main-content-wrap {
     width: 100%;
@@ -144,10 +135,6 @@
 }
 
 .layout-intransition {
-  .branding {
-    display: none !important;
-  }
-
   .app-user-controls,
   .app-user-name {
     opacity: 0 !important;
@@ -186,10 +173,6 @@
 [dir="rtl"] {
   &.app-admin-container.sidebar-closed {
     .sidebar-panel {
-      right: -$sidebar-width;
-    }
-    .branding {
-      left: auto !important;
       right: -$sidebar-width;
     }
   }

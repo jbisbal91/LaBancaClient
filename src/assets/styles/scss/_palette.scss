@@ -36,9 +36,6 @@
       .sidenav li.open > a > span,
       .icon-menu .mat-raised-button,
       .app-user .app-user-name,
-      .branding .app-logo-text {
-        color: $foreground500 !important;
-      }
       a:hover {
         // background: rgba(darken($color500, 20), 0.2) !important;
       }
@@ -47,9 +44,7 @@
         border-color: $foreground500 !important;
       }
       .icon-menu .mat-raised-button,
-      .branding {
-        background: rgba($color500, 0.96) !important;
-      }
+   
       .app-user {
         // background: darken($color500, 5) !important;
       }

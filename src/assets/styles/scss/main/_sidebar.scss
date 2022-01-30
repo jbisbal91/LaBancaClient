@@ -28,33 +28,6 @@
   }
 }
 
-.branding {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  padding: 0 16px;
-  width: $sidebar-width;
-  height: 64px;
-  line-height: 64px;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  color: #444;
-  background: #ffffff;
-  transition: all $sidebarTrnTime $transitionTiming;
-  overflow: hidden;
-  .app-logo {
-    width: auto;
-    height: 20px;
-    margin-right: 8px;
-  }
-  .app-logo-text {
-    width: auto;
-    font-size: 20px;
-    font-weight: 400;
-  }
-}
-
 .app-user {
   display: flex;
   flex-direction: row;
@@ -96,13 +69,7 @@
     opacity: 0;
     left: -2rem;
   }
-  .branding {
-    width: $compact-sidebar-width;
-    padding: 0;
-    .app-logo {
-      margin: auto;
-    }
-  }
+
   .app-user {
     padding: 0.5rem 0;
     .app-user-photo {
@@ -123,13 +90,5 @@
     left: auto;
     right: 12rem;
   }
-  .branding {
-    top: 0;
-    left: auto !important;
-    right: 0;
-    .app-logo {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-  }
+
 }
