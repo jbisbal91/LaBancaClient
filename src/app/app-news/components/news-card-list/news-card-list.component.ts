@@ -38,6 +38,7 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
+    this.catchDataNews();
     this.news = this.ls.getItem('dataNewsLocalStorage');
     this.actionSubscriptions.push(this.catchAction());
   }
@@ -45,6 +46,15 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.actionSubscriptions.forEach(as => as.unsubscribe());
   }
+
+  catchDataNews(){
+    this.newsService.dataNews$.subscribe(_news => {
+      if(_news!==null){
+        this.news = [..._news];
+      }
+    })
+  }
+
 
  catchAction(){
   if(this.ls.getItem('dataNewsLocalStorage') !== null){

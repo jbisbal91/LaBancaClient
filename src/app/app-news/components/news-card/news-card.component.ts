@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Input} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 
 import { DateService } from 'app/app-common/services/date.service';
+import { NewsService } from 'app/app-news/services/news.service';
 import { NewsDetailsComponent } from '../news-details/news-details.component';
 @Component({
   selector: 'app-news-card',
@@ -27,18 +28,24 @@ export class NewsCardComponent implements OnInit {
         console.log(this.screenHeight, this.screenWidth);
   }
 
-  constructor(private dateService: DateService,private dialog: MatDialog) { }
+  constructor(
+    private dateService: DateService,
+    private dialog: MatDialog,
+    private newsService: NewsService,) { }
  
   ngOnInit(): void {
 
   }
   ondblclick(id:any){
+    this.newsService.deleteNews(id);
     console.log(id);
+/*
     const dialogRef = this.dialog.open(NewsDetailsComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+*/
   }
 
   getFormattedDate(date: string): string {
