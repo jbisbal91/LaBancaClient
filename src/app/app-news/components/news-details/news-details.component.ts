@@ -44,7 +44,7 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
     return this.newsService.selectedNews$.subscribe(_selectedNews => {
       if(_selectedNews!==null){
         this.selectedNews = _selectedNews;
-        this.newsDescription = _selectedNews.content;
+        this.newsDescription = this.adjustContent(_selectedNews.content);
         console.log('NewsDetailsComponent: '+this.selectedNews.content);
         this.basicForm = new FormGroup({
           description: new FormControl(_selectedNews.content !== undefined ? _selectedNews.content: '',)
