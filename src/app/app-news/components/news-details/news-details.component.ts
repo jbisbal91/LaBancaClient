@@ -14,8 +14,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit,OnDestroy {
-  basicForm: FormGroup;
-  newsDescription = '';
+  description = new FormControl();
   isEdit = false;
   selectedNews!: any;
   selectedNewsSubscriptions: Subscription[] = [];
@@ -28,11 +27,6 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
-    this.basicForm = new FormGroup({
-      description: new FormControl('',) 
-  });
-
     this.selectedNewsSubscriptions.push(this.catchSelectedNews());
   }
 
@@ -44,11 +38,7 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
     return this.newsService.selectedNews$.subscribe(_selectedNews => {
       if(_selectedNews!==null){
         this.selectedNews = _selectedNews;
-        this.newsDescription = this.adjustContent(_selectedNews.content);
         console.log('NewsDetailsComponent: '+this.selectedNews.content);
-        this.basicForm = new FormGroup({
-          description: new FormControl(_selectedNews.content !== undefined ? _selectedNews.content: '',)
-      });
       }
     })
   }
@@ -80,8 +70,13 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
       });
  }
 
+ onDescriptionChange(event:any){
+  console.log(event);
+  this.selectedNews.content = event;
+ }
+
  updateNews(){
-   console.log(this.newsDescription)
+   console.log(this.selectedNews)
  }
 
  modeEdit(){

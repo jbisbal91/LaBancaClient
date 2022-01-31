@@ -19,11 +19,11 @@
     <h4>Descripción:</h4>
     <p class="margin-top align" *ngIf="!isEdit">{{adjustContent(selectedNews.content)}}<p>
  
-    <form [formGroup]="basicForm" class="textarea-form" *ngIf="isEdit">      
-      <mat-form-field class="textarea-full-width" appearance="outline">
-        <textarea formControlName="description" matInput placeholder="Ingrese la descripcion..." value="{{newsDescription}}"></textarea>
+        
+      <mat-form-field class="textarea-full-width" *ngIf="isEdit" appearance="outline">
+        <textarea matInput [formControl]="description" placeholder="Ingrese la descripcion..." value="{{adjustContent(selectedNews.content)}}" (change)="onDescriptionChange($event.target.value)"></textarea>
       </mat-form-field>
-    </form>
+    
       
 
   
