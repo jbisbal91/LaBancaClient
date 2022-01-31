@@ -1,7 +1,7 @@
 <h2 mat-dialog-title >
   <span class="title">{{selectedNews.titulo}}</span> 
-  <mat-icon class="icon-delete" (click)="deleteNews(selectedNews.id)" matSuffix>delete_forever</mat-icon>
-  <mat-icon class="icon-edit" matSuffix>mode_edit</mat-icon>
+  <mat-icon class="icon-delete" matTooltip="Clic para eliminar la noticia" (click)="deleteNews(selectedNews.id)" matSuffix>delete_forever</mat-icon>
+  <mat-icon class="icon-edit" matTooltip="Clic para editar la noticia" matSuffix>mode_edit</mat-icon>
 </h2>
 
 <h3 mat-dialog-subtitle class="subtitle">{{selectedNews.subtitulo}}</h3>
