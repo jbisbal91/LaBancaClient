@@ -3,3 +3,25 @@
     margin-bottom: 8px;
   }
 
+  .card-title {
+    color: #3059A5;
+    width:100%;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+
+.card-subtitle {
+  font-size: 12px;
+  float: left;
+  left: 2px;
+}
+
+.card-content {
+  float: left;
+  height: 60px;
+  width: 98%;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  text-align: left;
+}

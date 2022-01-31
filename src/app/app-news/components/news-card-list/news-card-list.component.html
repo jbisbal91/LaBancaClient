@@ -1,16 +1,8 @@
-<div [ngClass]="gridList">
+<div [ngClass]="gridList" *ngIf="news!==undefined">
 <mat-grid-list [(cols)]="cols" rowHeight="2:1">
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
-    <mat-grid-tile><app-news-card></app-news-card></mat-grid-tile>
+    <mat-grid-tile *ngFor="let _news of news">
+      <app-news-card [news]="_news"></app-news-card>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>
 

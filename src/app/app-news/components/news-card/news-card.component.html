@@ -1,12 +1,12 @@
 <div class="card-container">
     <mat-card class="news-card">
         <mat-card-title-group>
-          <mat-card-title class="card-title">Shiba Inu</mat-card-title>
-          <mat-card-subtitle class="card-subtitle">Small</mat-card-subtitle>
-          <img class="card-img" mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+          <mat-card-title class="card-title">{{_news.titulo}}</mat-card-title>
+          <mat-card-subtitle class="card-subtitle">{{getFormattedDate(_news.created_at)}}</mat-card-subtitle>
+          <img class="card-img" mat-card-sm-image src="{{_news.imagen_titulo.url}}" >
         </mat-card-title-group>
         <mat-card-content class="card-content">
-          {{longText}}
+          {{adjustContent(_news.content)}}
         </mat-card-content>
     </mat-card>
 </div>

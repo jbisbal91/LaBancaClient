@@ -10,8 +10,8 @@ import { News } from "../models/news";
 export class NewsService {
   constructor(protected http: HttpClient) {}
 
-  getAllNews(): Observable<News[]> {
-    return this.http.get<News[]>("/noticias").pipe(
+  getAllNews(): Observable<any> {
+    return this.http.get<any>("/noticias").pipe(
       catchError((err) => {
         return throwError(err);
       })
