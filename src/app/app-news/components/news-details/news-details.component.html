@@ -1,17 +1,17 @@
-<h2 mat-dialog-title>{{selectedNews.titulo}}</h2>
-<h3 mat-dialog-subtitle>{{selectedNews.subtitulo}}</h3>
+<h2 mat-dialog-title class="title">{{selectedNews.titulo}}</h2>
+<h3 mat-dialog-subtitle class="subtitle">{{selectedNews.subtitulo}}</h3>
 <mat-dialog-content class="mat-typography" *ngIf="selectedNews!==undefined">
 
   <img  mat-card-sm-image src="{{selectedNews.imagen_titulo.url}}"  width="100%" height="100%">
 
     <h4>Fecha de creada:</h4>
-    <p>{{getFormattedDate(selectedNews.created_at)}}<p>
+    <p class="margin-top">{{getFormattedDate(selectedNews.created_at)}}<p>
 
-      <h4>Ultima actualizacion:</h4>
-    <p>{{getFormattedDate(selectedNews.updated_at)}}<p>
+    <h4>Ultima actualizacion:</h4>
+    <p class="margin-top">{{getFormattedDate(selectedNews.updated_at)}}<p>
     
-    <h4>Descripción</h4>
-    <p>{{adjustContent(selectedNews.content)}}<p>
+    <h4>Descripción:</h4>
+    <p class="margin-top align">{{adjustContent(selectedNews.content)}}<p>
  
   
 </mat-dialog-content>
