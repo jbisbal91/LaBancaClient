@@ -1,7 +1,10 @@
 .news-card {
     max-width: 400px;
     margin-bottom: 8px;
+    cursor: pointer;
   }
+    
+  .news-card:hover {background-color: #e7e7e7;}
 
   .card-title {
     color: #3059A5;

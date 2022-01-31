@@ -29,7 +29,9 @@ export class NewsCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  ondblclick(id:any){
+    console.log(id);
+  }
 
   getFormattedDate(date: string): string {
     return this.dateService.toShortDate(date);
