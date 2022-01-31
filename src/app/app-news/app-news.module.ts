@@ -16,6 +16,7 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsCardListComponent } from './components/news-card-list/news-card-list.component';
 import { NewsContainerComponent } from './components/news-container/news-container.component';
 import { NewsRootComponent } from './news-root.component';
+import { NewsDetailsComponent } from './components/news-details/news-details.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { NewsRootComponent } from './news-root.component';
     PerfectScrollbarModule,
     RouterModule.forChild(AppNewsRoutes)
   ],
-  declarations: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent],
-  exports: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent]
+  declarations: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent, NewsDetailsComponent],
+  exports: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent, NewsDetailsComponent]
 })
 export class AppNewsModule { }

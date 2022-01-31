@@ -1,5 +1,5 @@
 <div class="card-container">
-    <mat-card class="news-card" (dblclick) = "ondblclick(_news.id)" #tooltip="matTooltip"  matTooltip="Doble clic para editar">
+    <mat-card class="news-card" (dblclick) = "ondblclick(_news.id)" #tooltip="matTooltip"  matTooltip="Doble clic para ver detalles">
         <mat-card-title-group>
           <mat-card-title class="card-title">{{_news.titulo}}</mat-card-title>
           <mat-card-subtitle class="card-subtitle">{{getFormattedDate(_news.created_at)}}</mat-card-subtitle>

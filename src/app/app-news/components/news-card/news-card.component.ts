@@ -1,5 +1,8 @@
 import { Component, OnInit, HostListener, Input} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+
 import { DateService } from 'app/app-common/services/date.service';
+import { NewsDetailsComponent } from '../news-details/news-details.component';
 @Component({
   selector: 'app-news-card',
   templateUrl: './news-card.component.html',
@@ -24,13 +27,18 @@ export class NewsCardComponent implements OnInit {
         console.log(this.screenHeight, this.screenWidth);
   }
 
-  constructor(private dateService: DateService) { }
+  constructor(private dateService: DateService,private dialog: MatDialog) { }
  
   ngOnInit(): void {
 
   }
   ondblclick(id:any){
     console.log(id);
+    const dialogRef = this.dialog.open(NewsDetailsComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   getFormattedDate(date: string): string {
