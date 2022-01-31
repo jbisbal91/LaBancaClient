@@ -1,0 +1,17 @@
+<div layout="row" mat-dialog-title>
+  <div flex>
+    <mat-icon class="icon_error_outline">error_outline</mat-icon>
+  </div>
+  <div flex>
+    <h2  style="margin-left: 45px;margin-top: 15px;">
+      ¿Estás seguro de que deseas eliminar la noticia?</h2>
+    <mat-dialog-content class="mat-typography">    
+      <p class="p1">Cualquier información guardada se eliminará del</p>
+      <p class="p2">sistema.</p>   
+    </mat-dialog-content>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <button class="button-secondary" mat-button mat-dialog-close>Cancel</button>
+  <button class="button-primary" mat-button [mat-dialog-close]="true" (click)="deleteNews()" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

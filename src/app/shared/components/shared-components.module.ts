@@ -27,6 +27,7 @@ import { AppComfirmComponent } from "../services/app-confirm/app-confirm.compone
 import { AppLoaderComponent } from "../services/app-loader/app-loader.component";
 
 import { ButtonLoadingComponent } from "./button-loading/button-loading.component";
+import { DeleteItemComponent } from "./delete-item/delete-item.component";
 
 
 const components = [
@@ -42,6 +43,7 @@ const components = [
   ButtonLoadingComponent,
   CustomizerComponent,
   FooterComponent,
+  DeleteItemComponent
 ];
 
 @NgModule({

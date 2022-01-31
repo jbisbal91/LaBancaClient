@@ -25,10 +25,16 @@
     right:2px; 
   }
 
-  .icons {
-    
-  }
-
-  .icon {
+  .icon-edit {
     float:right;
+    color:#686868;
+    cursor: pointer;
   }
+  .icon-edit:hover {color: #2B13FF;}
+
+  .icon-delete {
+    float:right;
+    color:#686868;
+    cursor: pointer;
+  }
+  .icon-delete:hover {color: #D81600;}
