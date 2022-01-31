@@ -28,6 +28,11 @@ export class NewsCardComponent implements OnInit,OnDestroy {
   constructor(private newsService: NewsService) { }
  
   ngOnInit(): void {
+    this.newsService.getNewsById(171).subscribe(news => {
+      if(news!==undefined){       
+        console.log(news);
+      }
+    });
     this.actionSubscriptions.push(this.catchAction());
   }
 

@@ -21,7 +21,7 @@ export class NewsService {
       }
 
   getNewsById(newsId: number): Observable<News> {
-    return this.http.get<News>(`${environment.apiURL}/noticias/${newsId}`)
+    return this.http.get<News>(`/noticias/${newsId}`)
       .pipe(
        catchError(err => {
          return throwError(err);
