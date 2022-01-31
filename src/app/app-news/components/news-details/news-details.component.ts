@@ -13,6 +13,7 @@ import { DeleteItemService } from 'app/shared/components/delete-item/service/del
   styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit,OnDestroy {
+  isEdit = false;
   selectedNews!: any;
   selectedNewsSubscriptions: Subscription[] = [];
   constructor(
@@ -66,5 +67,13 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
         }
       });
  }
-   
+
+ modeEdit(){
+  this.isEdit = true;
+ }
+
+ modeEditOff(){
+  this.isEdit = false;
+ }
+
 }

@@ -1,7 +1,8 @@
 <h2 mat-dialog-title >
   <span class="title">{{selectedNews.titulo}}</span> 
   <mat-icon class="icon-delete" matTooltip="Clic para eliminar la noticia" (click)="deleteNews(selectedNews.id)" matSuffix>delete_forever</mat-icon>
-  <mat-icon class="icon-edit" matTooltip="Clic para editar la noticia" matSuffix>mode_edit</mat-icon>
+  <mat-icon class="icon-edit" matTooltip="Editar la noticia" *ngIf="!isEdit" (click)="modeEdit()" matSuffix>mode_edit</mat-icon>
+  <mat-icon class="icon-edit" matTooltip="Editar la noticia" *ngIf="isEdit" (click)="modeEditOff()" matSuffix>edit_off</mat-icon>
 </h2>
 
 <h3 mat-dialog-subtitle class="subtitle">{{selectedNews.subtitulo}}</h3>
@@ -16,12 +17,20 @@
     <p class="margin-top">{{getFormattedDate(selectedNews.updated_at)}}<p>
     
     <h4>Descripción:</h4>
-    <p class="margin-top align">{{adjustContent(selectedNews.content)}}<p>
+    <p class="margin-top align" *ngIf="!isEdit">{{adjustContent(selectedNews.content)}}<p>
  
+    <form class="textarea-form" *ngIf="isEdit">      
+      <mat-form-field class="textarea-full-width" appearance="outline">
+        <textarea matInput placeholder="Ingrese la descripcion..."></textarea>
+      </mat-form-field>
+    </form>
+      
+
   
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
+  <button mat-button mat-dialog-close *ngIf="isEdit">Cancelar</button>
+  <button mat-button [mat-dialog-close]="true"  *ngIf="isEdit" cdkFocusInitial>Aceptar</button>
+  <button mat-button [mat-dialog-close]="true" *ngIf="!isEdit" cdkFocusInitial>Continuar</button>
 </mat-dialog-actions>
 
