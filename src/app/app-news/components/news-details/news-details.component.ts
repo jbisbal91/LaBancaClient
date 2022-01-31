@@ -6,6 +6,7 @@ import { NewsService } from 'app/app-news/services/news.service';
 import { DateService } from 'app/app-common/services/date.service';
 import { DeleteItemComponent } from 'app/shared/components/delete-item/delete-item.component';
 import { DeleteItemService } from 'app/shared/components/delete-item/service/delete-item.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-news-details',
@@ -13,6 +14,8 @@ import { DeleteItemService } from 'app/shared/components/delete-item/service/del
   styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit,OnDestroy {
+  basicForm: FormGroup;
+  newsDescription = '';
   isEdit = false;
   selectedNews!: any;
   selectedNewsSubscriptions: Subscription[] = [];
@@ -25,6 +28,11 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
   ) { }
 
   ngOnInit(): void {
+
+    this.basicForm = new FormGroup({
+      description: new FormControl('',) 
+  });
+
     this.selectedNewsSubscriptions.push(this.catchSelectedNews());
   }
 
@@ -36,7 +44,11 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
     return this.newsService.selectedNews$.subscribe(_selectedNews => {
       if(_selectedNews!==null){
         this.selectedNews = _selectedNews;
+        this.newsDescription = _selectedNews.content;
         console.log('NewsDetailsComponent: '+this.selectedNews.content);
+        this.basicForm = new FormGroup({
+          description: new FormControl(_selectedNews.content !== undefined ? _selectedNews.content: '',)
+      });
       }
     })
   }
