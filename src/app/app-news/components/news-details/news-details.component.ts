@@ -80,6 +80,10 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
       });
  }
 
+ updateNews(){
+   console.log(this.newsDescription)
+ }
+
  modeEdit(){
   this.isEdit = true;
  }
