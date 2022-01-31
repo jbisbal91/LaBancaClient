@@ -1,11 +1,17 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { NewsService } from 'app/app-news/services/news.service';
+import { News } from 'app/app-news/models/news';
 
 @Component({
   selector: 'app-news-card',
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.scss']
 })
-export class NewsCardComponent implements OnInit {
+export class NewsCardComponent implements OnInit,OnDestroy {
+  actionSubscriptions: Subscription[] = [];
+  news: News[];
 
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
   from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
@@ -19,9 +25,23 @@ export class NewsCardComponent implements OnInit {
         console.log(this.screenHeight, this.screenWidth);
   }
 
-  constructor() { }
-
+  constructor(private newsService: NewsService) { }
+ 
   ngOnInit(): void {
+    this.actionSubscriptions.push(this.catchAction());
   }
+
+  ngOnDestroy(): void {
+    this.actionSubscriptions.forEach(as => as.unsubscribe());
+  }
+
+ catchAction(){
+  return this.newsService.getAllNews().subscribe(news => {
+    if(news!==undefined){
+      this.news = news;
+      console.log(this.news);
+    }
+  });
+ }
 
 }
