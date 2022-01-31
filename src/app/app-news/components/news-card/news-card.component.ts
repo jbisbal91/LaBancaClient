@@ -36,7 +36,7 @@ export class NewsCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  ondblclick(id:any){
+  ondblclick2(id:any){
     this.newsService.deleteNews(id);
     console.log(id);
 /*
@@ -47,6 +47,18 @@ export class NewsCardComponent implements OnInit {
     });
 */
   }
+
+
+  ondblclick(news:any){
+    this.newsService.sendSelectedNews(news);
+    const dialogRef = this.dialog.open(NewsDetailsComponent,{
+      width: '35vw'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
   getFormattedDate(date: string): string {
     return this.dateService.toShortDate(date);

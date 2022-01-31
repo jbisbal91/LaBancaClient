@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { BehaviorSubject, forkJoin, of, Subject } from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
 
 import { News } from "../models/news";
 import { LocalStorageService } from "app/app-core/services/local-storage.service";
@@ -11,9 +11,14 @@ import { LocalStorageService } from "app/app-core/services/local-storage.service
 })
 export class NewsService {
 
-  private dataNewsLocalStorage: any[] = [];;
+  private dataNewsLocalStorage: any[] = [];
+
   private dataNewsSubject = new BehaviorSubject<any[]>(this.dataNewsLocalStorage);
   dataNews$ = this.dataNewsSubject.asObservable();
+
+  private selectedNews!: any;
+  private selectedNewsSubject = new BehaviorSubject<any>(this.selectedNews);
+  selectedNews$ = this.selectedNewsSubject.asObservable();
 
   constructor(
     protected http: HttpClient,
@@ -46,6 +51,10 @@ export class NewsService {
 
   sendDataNews(dataNews: any[]) {
     this.dataNewsSubject.next(dataNews);
+  }
+
+  sendSelectedNews(selectedNews: any) {
+    this.selectedNewsSubject.next(selectedNews);
   }
 
 }
