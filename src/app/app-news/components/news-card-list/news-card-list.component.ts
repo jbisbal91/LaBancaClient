@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { News } from 'app/app-news/models/news';
 import { NewsService } from 'app/app-news/services/news.service';
-
+import { LocalStorageService } from 'app/app-core/services/local-storage.service';
 
 @Component({
   selector: 'app-news-card-list',
@@ -31,16 +31,14 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
         console.log(this.screenHeight, this.screenWidth);
   }
 
-  constructor(private newsService: NewsService) { 
+  constructor(
+    private newsService: NewsService,
+    private ls: LocalStorageService) { 
     this.getScreenSize();
   }
 
   ngOnInit(): void {
-    this.newsService.getNewsById(171).subscribe(news => {
-      if(news!==undefined){       
-        console.log(news);
-      }
-    });
+    this.news = this.ls.getItem('dataNewsLocalStorage');
     this.actionSubscriptions.push(this.catchAction());
   }
 
@@ -49,12 +47,15 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
   }
 
  catchAction(){
-  return this.newsService.getAllNews().subscribe(_news => {
-    if(_news!==undefined){
-      this.news = _news.noticias;
-      console.log(this.news);
-    }
-  });
+  if(this.ls.getItem('dataNewsLocalStorage') !== null){
+    return;
+  }else if(this.ls.getItem('dataNewsLocalStorage') === null){
+    return this.newsService.getAllNews().subscribe(_news => {
+      if(_news!==undefined){
+        this.ls.setItem('dataNewsLocalStorage',_news.noticias);
+        this.news = this.ls.getItem('dataNewsLocalStorage');
+      }
+    });
+  }
  }
-
 }
