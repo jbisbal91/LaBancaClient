@@ -6,7 +6,7 @@ import { NewsService } from 'app/app-news/services/news.service';
 import { DateService } from 'app/app-common/services/date.service';
 import { DeleteItemComponent } from 'app/shared/components/delete-item/delete-item.component';
 import { DeleteItemService } from 'app/shared/components/delete-item/service/delete-item.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-news-details',

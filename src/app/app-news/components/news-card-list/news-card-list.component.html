@@ -6,10 +6,7 @@
         <mat-icon class="icon-add"matSuffix>add</mat-icon>
       </mat-card-content>
     </mat-card>
-    
   </mat-grid-tile>
-
-
     <mat-grid-tile *ngFor="let _news of news">
       <app-news-card [news]="_news"></app-news-card>
     </mat-grid-tile>

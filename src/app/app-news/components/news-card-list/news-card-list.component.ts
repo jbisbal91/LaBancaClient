@@ -1,9 +1,11 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 import { News } from 'app/app-news/models/news';
 import { NewsService } from 'app/app-news/services/news.service';
 import { LocalStorageService } from 'app/app-core/services/local-storage.service';
+import { NewsAddComponent } from '../news-add/news-add.component';
 
 @Component({
   selector: 'app-news-card-list',
@@ -21,17 +23,23 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
   getScreenSize(event?) {
         this.screenHeight = window.innerHeight;
         this.screenWidth = window.innerWidth;
-        if(this.screenWidth<871){
-          this.cols = 1;
-          this.gridList = 'grid-list-container-cols-1';
-        }else{
+        if(this.screenWidth > 1366){
+          this.cols = 3;
+          this.gridList = 'grid-list-container-cols-3';
+        }
+        if(this.screenWidth > 837 && this.screenWidth <= 1366){
           this.cols = 2;
           this.gridList = 'grid-list-container-cols-2';
+        }
+       if(this.screenWidth <= 837 ){
+          this.cols = 1;
+          this.gridList = 'grid-list-container-cols-1';
         }
         console.log(this.screenHeight, this.screenWidth);
   }
 
   constructor(
+    private dialog: MatDialog,
     private newsService: NewsService,
     private ls: LocalStorageService) { 
     this.getScreenSize();
@@ -70,6 +78,11 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
  }
 
  addNews() {
-   
+    const dialogRef = this.dialog.open(NewsAddComponent,{
+      width: '35vw'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
  }
 }
