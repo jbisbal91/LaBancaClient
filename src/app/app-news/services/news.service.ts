@@ -44,6 +44,7 @@ export class NewsService {
 
   updateNews(news: any) {
     const index = this.dataNewsLocalStorage.findIndex((n) => n.id === news.id);
+    news.updated_at = new Date();
     this.dataNewsLocalStorage[index] = news;
     this. sendDataNews(this.dataNewsLocalStorage);
     this.ls.setItem('dataNewsLocalStorage',this.dataNewsLocalStorage);
