@@ -55,11 +55,11 @@ sizeErrorMessage() {
 }
 
   onFileChange(evt: any) {
-    if(evt.target.files[0].size >= 10000){
-      this.sizeErrorMessage();
-      return;
-    }
     if (evt.target.files[0].type === "image/jpeg" || evt.target.files[0].type === "image/png") {
+      if(evt.target.files[0].size >= 10000){
+        this.sizeErrorMessage();
+        return;
+      }
       const target: DataTransfer = <DataTransfer>evt.target;
       if (target.files.length !== 1)
         throw new Error("Cannot use multiple files");
