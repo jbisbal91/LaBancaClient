@@ -1,8 +1,7 @@
 <h2 mat-dialog-title>
     <span class="title">Crear una noticia</span>
 </h2>
-<mat-dialog-content class="mat-typography">
-   
+<mat-dialog-content class="mat-typography">   
     <div class="upload-img">
         <input type="file" (change)="onFileChange($event)" style="opacity: 0.0; width: 100%; height: 100%;"
         multiple="false"/>
@@ -11,12 +10,6 @@
             <img class="img-upload" src="{{srcImg}}">
         </div>
     </div>
-   
-
-
-
-
-    
     <div class="title-input">
         <mat-form-field appearance="outline" class="input-full-width">
             <mat-label>Titulo de la noticia</mat-label>

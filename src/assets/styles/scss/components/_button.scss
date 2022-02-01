@@ -20,3 +20,14 @@
   50% { border-top-color: #777676;}
   100% { box-shadow: 0 0 0 .4em darken(#777676, 10%), 0 0 0 3.6em transparent; }
 }
+
+.format-error-snackbar {
+  background: #F8D7DA !important;
+  color: #831C3B !important; 
+}
+
+.format-error-snackbar button {
+  background-color: #F8D7DA !important;
+  color: #831C3B !important;
+  border: none;
+}

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 
 import { NewsService } from "app/app-news/services/news.service";
 import { DateService } from "app/app-common/services/date.service";
@@ -21,9 +22,11 @@ export class NewsAddComponent implements OnInit {
   _title :any;
   _description :any;
   srcImg: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
     private newsService: NewsService,
-    private dateService: DateService,
+    private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<NewsDetailsComponent>,
     private ls: LocalStorageService,
     private dialog: MatDialog,
@@ -32,11 +35,31 @@ export class NewsAddComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  formatErrorMessage() {
+    this._snackBar.open('El formato del archivo no es correcto', '¡Inténtalo de nuevo!', {
+        duration: 3000,
+        panelClass: ['format-error-snackbar', 'format-error'],
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+    });
+}
+
+sizeErrorMessage() {
+  this._snackBar.open('La imagen es muy grande', '¡Inténtalo de nuevo!', {
+      duration: 3000,
+      panelClass: ['format-error-snackbar', 'format-error'],
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+  });
+}
+
   onFileChange(evt: any) {
-    if (
-      evt.target.files[0].type === "image/jpeg" ||
-      evt.target.files[0].type === "image/png"
-    ) {
+    if(evt.target.files[0].size >= 10000){
+      this.sizeErrorMessage();
+      return;
+    }
+    if (evt.target.files[0].type === "image/jpeg" || evt.target.files[0].type === "image/png") {
       const target: DataTransfer = <DataTransfer>evt.target;
       if (target.files.length !== 1)
         throw new Error("Cannot use multiple files");
@@ -46,7 +69,10 @@ export class NewsAddComponent implements OnInit {
         this.srcImg = this.ls.getItem("recent-image");
       });
       reader.readAsDataURL(evt.target.files[0]);
-    }
+    } else {
+      this.formatErrorMessage();
+      return;
+  }
   }
 
   createNews(){
