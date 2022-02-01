@@ -74,7 +74,6 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
  onDescriptionChange(event:any){
   console.log(event);
   this._description = event;
-  
  }
 
  updateNews(){

@@ -34,6 +34,6 @@ import { NewsAddComponent } from './components/news-add/news-add.component';
     RouterModule.forChild(AppNewsRoutes)
   ],
   declarations: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent, NewsDetailsComponent, NewsAddComponent],
-  exports: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent, NewsDetailsComponent]
+  exports: [NewsRootComponent,NewsContainerComponent,NewsCardListComponent,NewsCardComponent, NewsDetailsComponent, NewsAddComponent]
 })
 export class AppNewsModule { }

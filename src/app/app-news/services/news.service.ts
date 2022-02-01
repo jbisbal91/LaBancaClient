@@ -42,6 +42,12 @@ export class NewsService {
     );
   }
 
+  createNews(news: any) {
+    this.dataNewsLocalStorage.push(news);
+    this. sendDataNews(this.dataNewsLocalStorage);
+    this.ls.setItem('dataNewsLocalStorage',this.dataNewsLocalStorage);
+  }
+
   updateNews(news: any) {
     const index = this.dataNewsLocalStorage.findIndex((n) => n.id === news.id);
     news.updated_at = new Date();
