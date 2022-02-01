@@ -42,6 +42,13 @@ export class NewsService {
     );
   }
 
+  updateNews(news: any) {
+    const index = this.dataNewsLocalStorage.findIndex((n) => n.id === news.id);
+    this.dataNewsLocalStorage[index] = news;
+    this. sendDataNews(this.dataNewsLocalStorage);
+    this.ls.setItem('dataNewsLocalStorage',this.dataNewsLocalStorage);
+  }
+
   deleteNews(newsId: number) {
     const index = this.dataNewsLocalStorage.findIndex((n) => n.id === newsId);
     this.dataNewsLocalStorage.splice(index, 1);

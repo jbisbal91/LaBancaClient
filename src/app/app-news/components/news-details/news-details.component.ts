@@ -15,6 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class NewsDetailsComponent implements OnInit,OnDestroy {
   description = new FormControl();
+  _description :any;
   isEdit = false;
   selectedNews!: any;
   selectedNewsSubscriptions: Subscription[] = [];
@@ -72,10 +73,13 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
 
  onDescriptionChange(event:any){
   console.log(event);
-  this.selectedNews.content = event;
+  this._description = event;
+  
  }
 
  updateNews(){
+  this.selectedNews.content = this._description;
+  this.newsService.updateNews(this.selectedNews);
    console.log(this.selectedNews)
  }
 
