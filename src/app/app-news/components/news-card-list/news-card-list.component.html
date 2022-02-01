@@ -1,10 +1,21 @@
 <div [ngClass]="gridList" *ngIf="news!==undefined">
 <mat-grid-list [(cols)]="cols" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-card class="add-card" (click) = "addNews()" #tooltip="matTooltip"  matTooltip="Adicionar noticia">
+      <mat-card-content>
+        <mat-icon class="icon-add"matSuffix>add</mat-icon>
+      </mat-card-content>
+    </mat-card>
+    
+  </mat-grid-tile>
+
+
     <mat-grid-tile *ngFor="let _news of news">
       <app-news-card [news]="_news"></app-news-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
 
 
 

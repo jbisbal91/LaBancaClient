@@ -68,4 +68,8 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
     });
   }
  }
+
+ addNews() {
+   
+ }
 }
