@@ -46,3 +46,47 @@
   .textarea-full-width {
     width: 100%;
   }
+
+  .up-img{
+    font-size: 50px;
+    color: #5E5E60;
+    float:right;
+    margin-right: 60px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  
+  
+    .icon-upload {
+      margin-top: -120px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .img {
+      float:right;
+      top:80px;
+      right:2px; 
+    }
+  
+
+  .upload-img{
+    height:120px;
+    width:120px;
+    border:  2px solid #AFAFAF;
+    float:right;
+    margin-right: 30px;
+    margin-top: 14px;
+    margin-bottom: 50px;
+    cursor: pointer !important;
+  }
+
+.img-upload{
+    height: 120px;
+    width:120px;
+    margin-top: -102px;
+    cursor: pointer;
+}
+
+.img-upload:hover {opacity: 0.5 !important;}
+

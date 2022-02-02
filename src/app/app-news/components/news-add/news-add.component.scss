@@ -14,7 +14,7 @@
     margin-right: 30px;
     margin-top: 14px;
     margin-bottom: 50px;
-    cursor: pointer; 
+    cursor: pointer !important; 
   }
 
 .img-upload{
@@ -32,7 +32,7 @@
     margin-bottom: 50px;
   }
 
-  .img-upload:hover {opacity: 0.5;}
+  .img-upload:hover {opacity: 0.5 !important;}
 
   .icon-upload {
     margin-top: -120px;

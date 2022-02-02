@@ -56,7 +56,7 @@ sizeErrorMessage() {
 
   onFileChange(evt: any) {
     if (evt.target.files[0].type === "image/jpeg" || evt.target.files[0].type === "image/png") {
-      if(evt.target.files[0].size >= 10000){
+      if(evt.target.files[0].size >= 20000){
         this.sizeErrorMessage();
         return;
       }
