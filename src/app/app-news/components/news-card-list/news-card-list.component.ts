@@ -70,7 +70,8 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
   }else if(this.ls.getItem('dataNewsLocalStorage') === null){
     return this.newsService.getAllNews().subscribe(_news => {
       if(_news!==undefined){
-        this.ls.setItem('dataNewsLocalStorage',_news.noticias);
+        var newsResult =_news.noticias.sort((a, b) => this.sortData(a, b));
+        this.ls.setItem('dataNewsLocalStorage',newsResult);
         this.news = this.ls.getItem('dataNewsLocalStorage');
       }
     });
@@ -85,4 +86,16 @@ export class NewsCardListComponent implements OnInit,OnDestroy {
       console.log(`Dialog result: ${result}`);
     });
  }
+
+ sortData(a: any, b: any): number {
+  if (a.OrderId < b.OrderId) {
+    return 1;
+  }
+  if (a.OrderId > b.OrderId) {
+    return -1;
+  }
+  return 0;
+}
+
+
 }

@@ -43,7 +43,10 @@ export class NewsService {
   }
 
   createNews(news: any) {
-    this.dataNewsLocalStorage.push(news);
+    let newsResult:any[] = [];
+    newsResult.push(news);
+    newsResult = newsResult.concat(this.ls.getItem('dataNewsLocalStorage'))
+    this.dataNewsLocalStorage = newsResult;
     this. sendDataNews(this.dataNewsLocalStorage);
     this.ls.setItem('dataNewsLocalStorage',this.dataNewsLocalStorage);
   }
