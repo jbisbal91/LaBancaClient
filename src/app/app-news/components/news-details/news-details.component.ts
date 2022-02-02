@@ -44,6 +44,17 @@ export class NewsDetailsComponent implements OnInit,OnDestroy {
     })
   }
 
+getUrl(value: string):string{
+  if(value!==undefined){
+    return value;
+  }else{
+    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRBhTyGxLk3vpmRRkC6qx1nLT4ho6ZeWIiOKDva7X4gxzhRGxHQT3hLNhRbJkJtnk13Bc&usqp=CAU';
+  }
+}
+
+
+
+
   getFormattedDate(date: string): string {
     return this.dateService.toShortDate(date);
   }
