@@ -1,9 +1,9 @@
 <div class="scroll-gridList" #scroll>
 <app-news-container></app-news-container>
 </div>
-<div class="scroll-top">
+<div class="scroll-top" *ngIf="isScrolled">
     <button mat-mini-fab (click)="scrollTop()" >
       <mat-icon style="color: white;">keyboard_double_arrow_up</mat-icon>
     </button>
-  </div>
+</div>
 
