@@ -1,0 +1,16 @@
+.scroll-gridList {
+	height: calc(100vh - 91px);
+	overflow-y: scroll;
+}
+
+.scroll-top {
+	display: flex;
+	float: right;
+	justify-content: center;
+	width: 120px;
+    margin-top: -60px;
+  }
+
+  ::ng-deep .scroll-top .mat-mini-fab.mat-accent {
+    background-color: #5E5E60;
+}
