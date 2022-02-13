@@ -3,6 +3,32 @@
 	overflow-y: scroll;
 }
 
+.scroll-gridList::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.scroll-gridList::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.scroll-gridList::-webkit-scrollbar-button:increment,.scroll-gridList::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.scroll-gridList::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.scroll-gridList::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.scroll-gridList::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 .scroll-top {
 	display: flex;
 	float: right;
